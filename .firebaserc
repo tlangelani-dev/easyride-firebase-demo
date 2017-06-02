@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "easyride-demo-268dd"
+    "default": "easyride-demo-268dd",
+    "staging": "easyride-demo"
   }
 }
