@@ -10,6 +10,17 @@ body {
     font-family: 'Raleway', sans-serif;
 }
 
+section {
+    background: #eaeaea;
+    padding: 20px;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+section > h3 {
+    margin: 0 0 15px 0;
+}
+
 .container  {
     padding: 15px;
     width: 600px;
@@ -22,3 +33,16 @@ body {
     width: 100%;
     margin-bottom: 10px;
 }
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    box-sizing: border-box;
+    outline: 0;
+}
+
+.hide { display: none; }

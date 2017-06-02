@@ -33,3 +33,53 @@ btnUpload.addEventListener('change', function(evt) {
 
     });
 });
+
+/**
+ * Login Section
+ */
+var txtEmail = document.getElementById('txtEmail');
+var txtPassword = document.getElementById('txtPassword');
+var btnLogin = document.getElementById('btnLogin');
+var btnSignUp = document.getElementById('btnSignUp');
+var btnLogout = document.getElementById('btnLogout');
+
+// add login event
+btnLogin.addEventListener('click', function(evt) {
+    var email = txtEmail.value;
+    var password = txtPassword.value;
+    var auth = firebase.auth();
+    // sign in
+    var promise = auth.signInWithEmailAndPassword(email, password);
+    promise.catch(function(evt) {
+        console.log(evt.message);
+    });
+});
+
+// add logout event
+btnLogout.addEventListener('click', function(evt) {
+    firebase.auth().signOut();
+});
+
+// add signup event
+btnSignUp.addEventListener('click', function(evt) {
+    // TODO: validate email
+    var email = txtEmail.value;
+    var password = txtPassword.value;
+    var auth = firebase.auth();
+    // create user and sign in
+    var promise = auth.createUserWithEmailAndPassword(email, password);
+    promise.catch(function(evt) {
+        console.log(evt.message);
+    });
+});
+
+// add realtime listener
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+        console.log(user);
+        btnLogout.classList.remove('hide');
+    } else {
+        console.log('Not logged in!');
+        btnLogout.classList.add('hide');
+    }
+});
